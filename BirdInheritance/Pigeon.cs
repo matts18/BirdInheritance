@@ -12,7 +12,16 @@ namespace BirdInheritance
             Egg[] eggs = new Egg[numberOfEggs];
             for(int count =  0; count < numberOfEggs; count++)
             {
-                eggs[count] = new Egg(color: "white", size: (Randomizer.NextDouble() * (3 - 1) + 1));
+                // 25% chance
+                if (Bird.Randomizer.Next(4) == 0 )
+                {
+                
+                    eggs[count] = new BrokenEgg("white");
+                }
+                else
+                {
+                    eggs[count] = new Egg(color: "white", size: (Randomizer.NextDouble() * (3 - 1) + 1));
+                }
             }
             return eggs;
         }
